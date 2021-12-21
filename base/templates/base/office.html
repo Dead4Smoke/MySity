@@ -1,0 +1,70 @@
+{% extends 'base/base.html' %}
+{% block body %}
+{% if request.user.is_staff  %}
+
+{% elif request.user.is_active  %}
+<h3 style="text-align: center; margin-top: 5%; font-style: italic;">Личный кабинет</h3>
+<form method="POST" class="needs-validation" enctype="multipart/form-data">  
+    {% csrf_token %}
+      <div class="box" style="margin-top: 20px; text-align: center; width: 100%;">
+          <div>
+              {% if messages %}
+              <ul class="messages">
+                  {% for message in messages %}
+                  <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                  {% endfor %}
+              </ul>
+              {% endif %}
+              <br>
+          </div>   
+            {% if is_exist %}        
+                <h1>Ваши данные отправлены</h1>
+                    <br>
+                <a href="downloadtabreg" class="bott">Печать отчета</a>     
+            {% else %}              
+          <div class="col-md-8 order-md-1"  style="max-width: 100%;">    
+                <div id="content-1" class="contentone">
+                  <h5 class="mb-3" style="text-align: center;">Заполните данные личного кабинета:</h5> 
+                  <div class="boxWrapper">
+                      <div class="labelWrapper">
+                          <label class="mg">Субъект Российской Федерации:</label>
+                          {{ form.Sub }}
+                          <label class="mg">Название муниципального образования:</label>
+                          {{ form.Municipal }}
+                          <label class="mg">ФИО Главы муниципального образования/ Главы местной администрации:</label>
+                          {{ form.MunicipalHead }}
+                          <label class="mg">Наименование должности главы муниципального образования/Главы местной администрации:</label>
+                          {{ form.AdminPost }}
+                      </div>
+                      <div class="labelWrapper">
+                          <label class="mg">Официальный веб сайт:</label>
+                          {{ form.WebSite }}
+                          <label class="mg">Площадь, кв.км:</label>
+                          {{ form.Area }}
+                          <label class="mg">Население, тыс. чел. (на момент заполнения заявки):</label>
+                          {{ form.Population }}
+                      </div>
+                  </div>                   
+                  <div class="boxWrapper2">
+                      <div class="labelWrapper">
+                          <label class="mg">ФИО должносного лица, ответственного за организационное сопровождение участие униципального образования в пилотном проэкте :</label>
+                          {{ form.FIO }}
+                          <label class="mg">Должность ответственного лица:</label>
+                          {{ form.WorkPost }}
+                          <label class="mg">Телефон:</label>
+                          {{ form.Number }}
+                          <label class="mg">Почта:</label>
+                          {{ form.Email }}
+                      </div>
+                  </div>
+                              
+                </div>                          
+                <hr class="mb-4">
+                  <button class="btn btn-primary btn-lg btn-block cli" type="submit" >Сохранить</button>
+                </hr>
+                {% endif %}                           
+          </div>
+      </div>   
+</form> 
+{% endif %}
+{% endblock%}

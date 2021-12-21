@@ -1,0 +1,112 @@
+.tab3dangerwrapperseaerch{
+    width: 75%;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 15px;
+    background-color: white;
+    margin: 2%;
+    margin-left: 10%;
+    box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+}
+
+.tab3two2{
+    height: 60px !important;
+    width: 50%;
+    margin-top: 50px;
+}
+
+.oblozhka{
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: 2px;
+    width: 98%;
+    margin: 1%;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+}
+
+
+
+.searchinnerleft{
+  
+    width: 50%;
+}
+
+.searchinnerright{
+    width: 50%;
+}
+
+.pp{
+    width: 25%;
+}
+
+.pptext{
+    margin-top: 50px;
+}
+
+.tab3two3{
+    width: 50%;
+    margin-top: 15px;
+    text-align: right;
+}
+
+.searchfirstblock{
+    display: flex;
+    width: 100%;
+    margin: 1.5%;
+}
+
+
+.searchsecondblock{
+    display: flex;
+    width: 100%;
+}
+
+
+.searchthirdblock{
+    margin: 1.5%;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+.searhrespp3wrapper{
+    width: 23%;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 5px;
+    background-color: white;
+    margin-left: 1%;
+    box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+}
+
+.searhrespp3wrapper2{
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+}
+
+
+.txt{
+    font-weight: bold;
+}
+
+.txt2{
+    text-align: center !important;
+    width: 100%;
+}
+
+.carwrapleft{
+    width: 50%;
+    float: left;
+    text-align: revert;
+}
+
+.carwrapright{
+    width: 50%;
+    float: left;
+    text-align: revert;
+}
+
+  

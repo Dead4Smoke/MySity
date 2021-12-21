@@ -1,0 +1,506 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block body %}
+{% if request.user.is_staff  %}
+
+{% elif request.user.is_active  %}
+<h3 style="text-align: center; margin-top: 5%; font-style: italic;">Оценочная карта</h3>
+<h5 style="text-align: center; font-style: italic;">Выберите принцип</h5>
+<form method="POST" class="needs-validation" enctype="multipart/form-data">  
+    {% csrf_token %}
+           
+    <div class="cardwrapper">
+        <div class="tabs2">
+            <input type="radio" name="tab-btn" id="tab-btn-1" value="" >
+            <label for="tab-btn-1">Принцип 1</label>
+            <input type="radio" name="tab-btn" id="tab-btn-2" value="">
+            <label for="tab-btn-2">Принцип 2</label>
+            <input type="radio" name="tab-btn" id="tab-btn-3" value="">
+            <label for="tab-btn-3">Принцип 3</label>
+            <input type="radio" name="tab-btn" id="tab-btn-4" value="">
+            <label for="tab-btn-4">Принцип 4</label>
+            <input type="radio" name="tab-btn" id="tab-btn-5" value="">
+            <label for="tab-btn-5">Принцип 5</label>
+            <input type="radio" name="tab-btn" id="tab-btn-6" value="" >
+            <label for="tab-btn-6">Принцип 6</label>
+            <input type="radio" name="tab-btn" id="tab-btn-7" value="">
+            <label for="tab-btn-7">Принцип 7</label>
+            <input type="radio" name="tab-btn" id="tab-btn-8" value="">
+            <label for="tab-btn-8">Принцип 8</label>
+            <input type="radio" name="tab-btn" id="tab-btn-9" value="">
+            <label for="tab-btn-9">Принцип 9</label>
+            <input type="radio" name="tab-btn" id="tab-btn-10" value="">
+            <label for="tab-btn-10">Принцип 10</label>
+
+                <div id="content-1">
+                    <img src="{% static 'base/img/UN.png' %}" style="height: 150px; margin-bottom: 3%; margin-top: 10px;">               
+                    <h5>ПЛАНИРОВАНИЕ ДЛЯ УСТОЙЧИВОСТИ К БЕДСТВИЯМ</h5>
+                    <div class="cardtext">
+                        <p>Для заполнения раздела Оценочной карты потребуются следующие данные: организационные схемы; списки
+                            организаций по районам, субъектам и т.д.; соответствующие меморандумы о договоренности и другие документы с
+                            описанием функций каждой затрагиваемой организации; имена ключевых участников; протоколы совещаний и
+                            мероприятий с заинтересованными организациями; список имеющейся информации и сведений для связи с
+                            заинтересованными сторонами. 
+                        </p>
+                    </div>
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.1.1 </span> Меры по снижению риска бедствий в соответствии с Сендайской рамочной программой включены и реализованы в генеральном плане развития города (или соответствующей стратегии / плане)?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car1_1 }}
+                            </div>
+                            <div class="formstab3 cards2" style="font-weight: 200; font-size: smaller;" >Под "планом" мы обычно подразумеваем какую-то форму генерального плана города, стратегию развития. Это может быть территориальный план, план инфраструктуры или план по охране окружающей среды или устойчивости, при условии, что он соответствует критериям Сендайской рамочной программы из пункта 27 (b). В качестве альтернативы, если в городе существует отдельный план/ политика/ стратегия по снижению риска бедствий в соответствии с национальными стратегиями, это также может продемонстрировать выполнение Сендайской рамочной программы. Для выполнения план должен охватывать все 10 принципов</div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.1.2 </span> Есть ли межведомственный/отраслевоймеханизм с соответствующимиполномочиями и ресурсами длярешения задач по уменьшениюопасности бедствий?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car1_2 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.1.3 </span> Является ли устойчивость должным образом интегрированной в другие ключевые функции города? (например, планирование, устойчивое развитие, инвестиционную привлекательность, финансы исоблюдение, взаимодействие с местными сообществами, управление в чрезвычайных ситуациях, соответствие нормам, управление инфраструктурой, коммуникации и т.д.)</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car1_3 }}
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <div id="content-2">
+                    <img src="{% static 'base/img/UN.png' %}" style="height: 150px; margin-bottom: 3%; margin-top: 10px;">               
+                    <h5>ВЫЯВЛЕНИЕ, ПОНИМАНИЕ И ИСПОЛЬЗОВАНИЕ НАСТОЯЩИХ И БУДУЩИХ СЦЕНАРИЕВ РИСКА</h5>
+                    <div class="cardtext">
+                        <p> Обратите внимание, что меры по предупреждению и устранению опасности, которые должны предусматриваться в каждом сценарии, рассматриваются в других разделах оценочной карты.</p>
+                    </div>
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.2.1 </span>Город понимает ключевые опасности, грозящие городу, и вероятность их возникновения? </div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car2_1 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.2.2 </span> Есть общее понимание рисков между городом и различными коммунальными и другими региональными и национальными учреждениями, которые управляют инфраструктурой, такой как электричество, вода, автомобильные и железные дороги, слабых мест в системе и рисков городского масштаба?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car2_2 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.2.3 </span>Согласованы ли их сценарии об уязвимости в масштабах всего города от каждой опасности или групп опасностей (см. выше)?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car2_3 }}
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.2.4 </span>Существует ли коллективное понимание потенциально каскадных отключений между различными городскими и инфраструктурными системами в рамках различных сценариев?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car2_4 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.2.5 </span>Существуют ли понятные карты опасностей и информация о существующих рисках? Эти данные регулярно обновляются?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car2_5 }}
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+
+                <div id="content-3">
+                    <img src="{% static 'base/img/UN.png' %}" style="height: 150px; margin-bottom: 3%; margin-top: 10px;">               
+                    <h5>ПОВЫШЕНИЕ ФИНАНСОВЫХ ВОЗМОЖНОСТЕЙ ДЛЯ УСТОЙЧИВОСТИ К БЕДСТВИЯМ</h5>
+                    <div class="cardtext">
+                        <p> Для заполнения данного раздела Оценочной карты потребуются следующие данные: документация по бюджету и плану капитальных вложений; документация по всем имеющимся видам стимулирования или схемам финансирования (например, ссуды на повышение сейсмоустойчивости), влияющим на устойчивость к бедствиям, вместе со статистикой по каждому району города; статистика охвата страхованием.</p>
+                    </div>
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.3.1 </span> Муниципальные/ федеральные ведомства понимают все источники финансирования и “стабильные дивиденды”, хорошо взаимодействуют, знают все доступные пути для привлечения внешнего финансирования и активно изыскивают средства для крупных инвестиций в устойчивое развитие.</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car3_1 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.3.2 </span> Имеет ли в городе конкретный "отдельный" (защищенный) бюджет, необходимые ресурсы и механизмы резервного фонда для уменьшения опасности бедствий на местном уровне (смягчение последствий, предотвращение, реагирование и восстановление)?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car3_2 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.3.3 </span> Какой уровень страхового покрытия существует в городе во всех сегментах - бизнеса и общества?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car3_3 }}
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.3.4 </span> Какие льготы существуют для различных отраслей и сегментов бизнеса и общества для повышения устойчивости?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car3_4 }}
+                            </div>
+                        </div> 
+                    </div>             
+                </div>
+
+                <div id="content-4">
+                    <img src="{% static 'base/img/UN.png' %}" style="height: 150px; margin-bottom: 3%; margin-top: 10px;">               
+                    <h5>ОСУЩЕСТВЛЕНИЕ УСТОЙЧИВОГО ГОРОДСКОГО РАЗВИТИЯ</h5>
+                    <div class="cardtext">
+                        <p> Для заполнения данного раздела Оценочной карты потребуются следующие данные: землепользование,
+                            население, уровни доходов и экономической активности по сегментам города; а также соответствующие
+                            строительные нормы и правила и их применение к каждому объекту недвижимости в отдельности.</p>
+                    </div>
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.4.1 </span> Зонирован ли город надлежащим образом с учетом, например, воздействия основных сценариев риска по видам экономической деятельности, сельскохозяйственного производства и населенных пунктов?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car4_1 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.4.2 </span> Способствуют ли подходы через планирование и разработку нового городского развития повышению устойчивости?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car4_2 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.4.3 </span> Существуют ли строительные нормы и стандарты, а также касаются ли они конкретных известных опасностей и рисков для города? Регулярно ли эти стандарты обновляются?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car4_3 }}
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.4.4 </span> Широко ли применяются, соблюдаются и проверяются правила зонирования, строительные нормы и стандарты?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car4_4 }}
+                            </div>
+                        </div> 
+                    </div>             
+                </div>
+
+                <div id="content-5">
+                    <img src="{% static 'base/img/UN.png' %}" style="height: 150px; margin-bottom: 3%; margin-top: 10px;">               
+                    <h5>ОХРАНА ПРИРОДНЫХ ЗАПОВЕДНИКОВ ДЛЯ УЛУЧШЕНИЯ ЗАЩИТНЫХ ФУНКЦИЙ, ПРЕДОСТАВЛЕННЫХ ПРИРОДНЫМИ ЭКОСИСТЕМАМИ</h5>
+                    <div class="cardtext">
+                        <p> Для заполнения данного раздела вам потребуются следующие данные: документация по землепользованию и зонированию, а также соответствующие показатели, характеризующие масштабы и состояние значимых экосистем</p>
+                    </div>
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.5.1 </span> В части касающейся природных активов, понимает ли город, какие услуги предоставляет этот природный капитал для города ?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car5_1 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.5.2 </span> Поддерживается ли развитие зеленой и синей инфраструктуры в крупных городах и инфраструктурных проектах посредством городской политики?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car5_2 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.5.3 </span> Знает ли город об экосистемных услугах, которые предоставляются городу из природных активов за пределами его административных границ? Имеются ли соглашения с соседними администрациями для поддержки по защите и управлению этими активами?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car5_3 }}
+                            </div>
+                        </div> 
+                    </div>      
+                </div>
+
+                <div id="content-6">
+                    <img src="{% static 'base/img/UN.png' %}" style="height: 150px; margin-bottom: 3%; margin-top: 10px;">               
+                    <h5>УВЕЛИЧЕНИЕ ВЕДОМСТВЕННЫХ ВОЗМОЖНОСТЕЙ ДЛЯ УСТОЙЧИВОСТИ К БЕДСТВИЯМ</h5>
+                    <div class="cardtext">
+                        <p> Для заполнения данного раздела потребуются следующие данные: учебные планы; личные карточки прошедших обучение, проведенные курсы; учебные программы школ и вузов; данные опросов и маркетинговых исследований по эффективности.</p>
+                    </div>
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.6.1 </span> Имеет ли город свободный доступ ко всем навыкам и опыту, который, как он считает, будет ему необходим для снижения рисков и реагирования на выявленные сценарии бедствий?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car6_1 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.6.2 </span> Существует ли согласованная кампания со СМИ и Министерством образования, с сотовыми и теле- операторами для обеспечения населения информацией о рисках и стихийных бедствиях?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car6_2 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.6.3 </span> В какой степени обмениваются данными об устойчивости городские власти и организации, связанные с устойчивостью города?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car6_3 }}
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.6.4 </span> Существуют ли учебные курсы, посвященные вопросам риска и устойчивости для всех уровней города, включая правительство, бизнес, неправительственные организации и сообщество?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car6_4 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.6.5 </span> Часто ли в городе используются учебные материалы, доступные на основных иностранных языках?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car6_5 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.6.6 </span> Действительно ли город активно стремится обмениваться знаниями и учиться у других городов, сталкивающихся с подобными проблемами?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car6_6 }}
+                            </div>
+                        </div> 
+                    </div>            
+                </div>
+
+                <div id="content-7">
+                    <img src="{% static 'base/img/UN.png' %}" style="height: 150px; margin-bottom: 3%; margin-top: 10px;">               
+                    <h5>ПОНИМАНИЕ И ПОВЫШЕНИЕ СОЦИЕТАЛЬНЫХ ВОЗМОЖНОСТЕЙ ДЛЯ УСТОЙЧИВОСТИ</h5>
+                    <div class="cardtext">
+                        <p> Для заполнения этого раздела потребуются следующие данные: список гражданских организаций, и сведения об их численности, функциях и о том, как они работают; подробности о том, как город работает с уязвимыми группами населения – например, населением бедных районов; бродячими или кочевыми общинами; жителями трущоб/фавел; пожилыми людьми; инвалидами или психически больными; детьми; носителями иностранных языков.</p>
+                    </div>
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.7.1 </span> Участвуют ли местные или общественные организации в снижении риска и реагировании на последствия ЧС в каждом районе города?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car7_1 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.7.2 </span> Существуют ли регулярные обучающие программы для наиболее уязвимых групп населения в городе?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car7_2 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.7.3 </span> Какая доля предприятий имеет оформленный план непрерывности бизнеса, который был рассмотрен в течение последних 18 месяцев?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car7_3 }}
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.7.4 </span> Насколько эффективно участие граждан и СМИ для города в отношении снижения риска бедствий?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car7_4 }}
+                            </div>
+                        </div> 
+                    </div>             
+                </div>
+
+                <div id="content-8">
+                    <img src="{% static 'base/img/UN.png' %}" style="height: 150px; margin-bottom: 3%; margin-top: 10px;">               
+                    <h5>ПОВЫШЕНИЕ УСТОЙЧИВОСТИ ИНФРАСТРУКТУРЫ К БЕДСТВИЯМ</h5>
+                    <div class="cardtext">
+                        <p> Для заполнения этого раздела оценочной карты потребуются следующие данные: планы противодействия бедствиям для каждой инфраструктурной системы (каждая из которых принадлежать одной или нескольким отдельным организациям) и сведения о выполнении этих планов; расположение критически важных объектов и взаимосвязи между ними; обслуживаемое ими население; документация, в которой увязывается выход из строя или повреждение этих КВО со сценариями в Принципе 2. Эти данные, по-видимому, будут поступать от многих организаций, и при заполнении данного раздела оценочной карты, вероятно, потребуется помощь технических специалистов.</p>
+                    </div>
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.8.1 </span> Является ли устойчивость критической инфраструктуры приоритетом города, имеет ли город и реализует план или стратегию по критической инфраструктуре?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car8_1 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.8.2 </span> Является ли существующая защитная инфраструктура хорошо спроектированной и хорошо построенной на основе информации о рисках?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car8_2 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.8.3 </span> Ожидается ли значительная потеря обслуживания для этих двух основных услуг для значительной части города в соответствии с согласованными сценариями бедствия?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car8_3 }}
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.8.4 </span> Ожидаются ли значимые потери обслуживания для значительной части города в случае наихудшего сценария бедствия? В случае отказа энергетические инфраструктурные коридоры останутся в безопасности (то есть без риска утечек, опасности поражения электрическим током и т.д.)?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car8_4 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.8.5 </span> Ожидаются ли значимые потери обслуживания значительной части города в случае наихудшего сценария бедствия? В случае отказа транспортные коридоры будут оставаться безопасными (то есть свободными от риска наводнений, ударной волны и т.д.) и проходимыми?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car8_5 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.8.6 </span> Ожидаются ли значимые потери обслуживания для значительной части города для наихудшего сценария бедствия?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car8_6 }}
+                            </div>
+                        </div> 
+                    </div>          
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.8.7 </span> Достаточно ли возможностей здравоохранения в связи с предполагаемыми серьезными травмами для наихудшего сценария бедствий?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car8_7 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.8.8 </span> % образовательных структур, подверженных риску повреждения при наиболее вероятном и наиболее опасном сценариях.</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car8_8 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.6.9 </span> Будет ли достаточно противоаварийных сил и средств, если понадобится военное или гражданское подкрепление?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car8_9 }}
+                            </div>
+                        </div> 
+                    </div>         
+                </div>
+
+                <div id="content-9">
+                    <img src="{% static 'base/img/UN.png' %}" style="height: 150px; margin-bottom: 3%; margin-top: 10px;">               
+                    <h5>ОБЕСПЕЧЕНИЕ ЭФФЕКТИВНОГО РЕАГИРОВАНИЯ НА БЕДСТВИЯ</h5>
+                    <div class="cardtext">
+                        <p> Для заполнения этого раздела Оценочной карты потребуются следующие данные (возможно, от целого ряда организаций и ведомств): какие системы оповещения имеются и каков их охват; планы и процедуры управления в чрезвычайных ситуациях, в которых конкретно учитываются последствия сценариев, рассматриваемых в разделе 3; документация экстренных служб – кадровое обеспечение и оснащенность; документация по учениям и тренировкам; определение систем, для которых крайне важна способность к взаимодействию с другими организациями, и принятых в них стандартов; документация по проведенной оценке, сделанным выводам и принятым мерам по совершенствованию.</p>
+                    </div>
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.9.1 </span> Имеет ли город план или стандартную процедуру для принятия мер по раннему предупреждению и прогнозу? Какой охват населения системами раннего оповещения?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car9_1 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.9.2 </span> Существует ли план борьбы со стихийными бедствиями/ готовности/ реагирования на чрезвычайные ситуации, в котором излагаются меры по снижению, готовности и реагированию на чрезвычайные ситуации в городе?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car9_2 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.9.3 </span> Имеет ли ответственный орган управления стихийными бедствиями достаточный кадровый потенциал, в случае развития сценария катастрофических событий?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car9_3 }}
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.9.4 </span> Четко ли определены требования к оборудованию и запасам, а также наличие оборудования?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car9_4 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.9.5 </span> Сможет ли город продолжать питаться и укрывать свое население после бедствия (катастрофы)?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car9_5 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.9.6 </span> Есть ли центр экстренной помощи с участием всех ведомств, автоматизирующий стандартные операционные процедуры, специально предназначенные для решения наиболее вероятных и наиболее опасных сценариев?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car9_6 }}
+                            </div>
+                        </div> 
+                    </div>          
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.9.7 </span> Вовлечены в тренировки как общество, так и профессионалы?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car9_7 }}
+                            </div>
+                        </div> 
+                    </div> 
+                </div>
+
+                <div id="content-10">
+                    <img src="{% static 'base/img/UN.png' %}" style="height: 150px; margin-bottom: 3%; margin-top: 10px;">               
+                    <h5>БЫСТРОЕ ВОССТАНОВЛЕНИЕ И СТРОИТЕЛЬСТВО «ЛУЧШЕ, ЧЕМ БЫЛО»</h5>
+                    <div class="cardtext">
+                        <p>Для заполнения этого раздела оценочной карты необходимы следующие данные: планы ликвидации последствий и восстановления после бедствий, возможно из различных организаций и учреждений.0</p>
+                    </div>
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.10.1 </span> Существует ли стратегия или процесс для восстановления после ЧС, включая экономическую перезагрузку, социальные аспекты и т.д.</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car10_1 }}
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="tab3dangerwrapper">   
+                        <div class="tab3danger cards">             
+                            <div class="formstab3 cards2"><span style="font-weight: bold;"> П.10.2 </span> Могут ли методы оценки после ЧС включать анализ отказов и способность извлекать уроки, которые затем используются для проектирования и передачи в проекты по восстановлению?</div>         
+                            <div class="tab3optionsOne tab3two tab3two">
+                                {{ form.car10_2 }}
+                            </div>
+                        </div> 
+                    </div> 
+                </div>
+        </div>
+    </div>
+    <hr class="mb-4">
+         <button class="btn btn-primary btn-lg btn-block cli" type="submit" >Сохранить</button>
+    </hr>                          
+  
+</form>                 
+{% endif %}
+{% endblock%}

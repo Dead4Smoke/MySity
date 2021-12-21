@@ -1,0 +1,212 @@
+{% extends 'base/base.html' %}
+{% block body %}
+{% if request.user.is_staff  %}
+
+{% elif request.user.is_active  %}
+<form method="POST" class="needs-validation" enctype="multipart/form-data">  
+    {% csrf_token %}
+      <div class="box" style="margin-top: 20px; text-align: center; width: 100%;">
+        <h3 style="text-align: center; margin-top: 5%; font-style: italic;">Паспорт проекта</h3>       
+            {% if is_exist %}        
+                <h1>Ваши данные отправлены</h1>
+                    <br>
+                <a href="{% url 'downloadtab3' %}" class="bott">Печать отчета</a>     
+            {% else %}
+          <div class="col-md-8 order-md-1"  style="max-width: 100%;">    
+            <div id="content-1" class="contentone">
+                  <h5 class="mb-3" style="text-align: center;">Заполните данные:</h5> 
+               
+                  <!-- первый блок -->
+               
+                  <div class="tab3dangerwrapper">
+                            <br>
+                            <div class="tab3danger">                     
+                                <div class="formstab3">Название практики в области защиты населения и территорий от чрезывычайных ситуаций, и пожарной безопасности и безопасность людей на водных объектах</div>                   
+                                <div class="tab3optionsOne tab3two">
+                                    {{ form.PP1 }}
+                                </div>
+                            </div>                
+                </div>
+
+                <div class="tab3dangerwrapper">
+                            <div class="tab3danger">             
+                                <div class="formstab3">Цели и задачи практики</div>         
+                                <div class="tab3optionsOne tab3two">
+                                    {{ form.PP2 }}
+                                </div>
+                            </div> 
+                </div>    
+
+                 <!-- слайдер -->
+
+                <div class="tabs">
+                    <input type="radio" name="tab-btn" id="tab-btn-1" value="" >
+                    <label for="tab-btn-1">Предупреждения ЧС</label>
+                    <input type="radio" name="tab-btn" id="tab-btn-2" value="">
+                    <label for="tab-btn-2">Готовность</label>
+                    <input type="radio" name="tab-btn" id="tab-btn-3" value="">
+                    <label for="tab-btn-3">Реагирование</label>
+                    <input type="radio" name="tab-btn" id="tab-btn-4" value="">
+                    <label for="tab-btn-4">Востановление</label>
+                    <input type="radio" name="tab-btn" id="tab-btn-5" value="">
+                    <label for="tab-btn-5">Другое</label>
+                
+                    <div id="content-1"> 
+                        <div class="tab3dangerwrapper">
+                            <h5>Предупреждения ЧС</h5>
+                            <div class="tab3box">                      
+                                {{ form.PP3_1 }}
+                            </div> 
+                                <br>          
+                            <div class="tab3texts">             
+                                <p>Другое</p>               
+                                {{ form.PP3_1_6 }}                       
+                            </div>                                                       
+                        </div>
+                    </div>
+        
+                    <div id="content-2">
+                        <div class="tab3dangerwrapper">
+                            <h5>Готовность</h5>
+                            <div class="tab3box">                      
+                                {{ form.PP3_2 }}
+                            </div> 
+                                <br>          
+                            <div class="tab3texts">             
+                                <p>Другое</p>               
+                                {{ form.PP3_2_5 }}                       
+                            </div>                  
+                        </div> 
+                    </div>
+        
+                    <div id="content-3">   
+                        <div class="tab3dangerwrapper">
+                            <h5>Реагирование</h5>
+                            <div class="tab3box">                      
+                                {{ form.PP3_3 }}
+                            </div> 
+                                <br>          
+                            <div class="tab3texts">             
+                                <p>Другое</p>               
+                                {{ form.PP3_3_6 }}                       
+                            </div>                  
+                        </div>     
+                    </div>
+        
+                    <div id="content-4">
+                        
+                        <div class="tab3dangerwrapper">
+                            <h5>Востановление</h5>
+                            <div class="tab3box">                      
+                                {{ form.PP3_4 }}
+                            </div> 
+                                <br>          
+                            <div class="tab3texts">             
+                                <p>Другое</p>               
+                                {{ form.PP3_4_3 }}                       
+                            </div>                  
+                        </div>     
+                        
+                        
+                    </div>     
+    
+                    <div id="content-5">
+                        <h5>Другое</h5>                
+                            <div class="tab3danger" style="display: block;">
+                                <div class="tab3optionsOne tab3two">                            
+                                    {{ form.PP3_5 }} 
+                                </div>                               
+                            </div>                            
+                    </div>
+                </div>
+
+                <!-- блоки после слайдера -->
+
+                <div class="tab3dangerwrapper">
+                    <div class="tab3danger">                       
+                        <div class="formstab3">Объект воздействия (население, территория, природные объекты, другое)</div>                      
+                        <div class="tab3optionsOne tab3two">
+                            {{ form.PP4 }}
+                        </div>
+                    </div>                 
+                </div>
+
+                <div class="tab3dangerwrapper">
+                    <div class="tab3danger">                      
+                        <div class="formstab3">Описание механизма реализации практики</div>                    
+                        <div class="tab3optionsOne tab3two">
+                            {{ form.PP5 }}
+                        </div>
+                    </div>                 
+                </div>
+
+                <div class="tab3dangerwrapper">
+                    <div class="tab3danger">                    
+                        <div class="formstab3">Описание позитивных изменений, которые приозошли в муниципальном образовании в результате реализации практики</div>                      
+                        <div class="tab3optionsOne tab3two">
+                            {{ form.PP6 }}
+                        </div>
+                    </div>    
+                </div>
+
+                <div class="tab3dangerwrapper">
+                    <div class="tab3danger">                  
+                        <div class="formstab3">Ресурсы, задействованные в реализации практики (людские, материальные, финансовые, другие)</div>      
+                        <div class="tab3optionsOne tab3two">
+                            {{ form.PP7 }}
+                        </div>
+                    </div>            
+                </div>
+
+                <div class="tab3dangerwrapper">
+                    <div class="tab3danger">                 
+                        <div class="formstab3">Возможности и перспективы распространения, тиражирование практики</div>                 
+                        <div class="tab3optionsOne tab3two">
+                            {{ form.PP8 }}
+                        </div>
+                    </div>              
+                </div>
+
+                <br>
+                
+                    <!-- последний блок -->
+
+                <div class="tab3wrapper" >
+                    <div class="Tab3BoxUp">                 
+                        <div class="Tab3labelWrapper">
+                            <label class="Tab4mg"> Мероприятия, относящиеся к лучшим практикам, которыми город готов поделиться </label>
+                        </div>
+                        <div class="tab3optionsOne ">
+                            {{ form.TT1 }}
+                        </div>
+                    </div>
+
+                    <div class="Tab3BoxUp">
+                        <div class="Tab3labelWrapper">
+                            <label class="Tab4mg"> Подтверждение(текст) </label>
+                        </div>
+                        <div class="tab3optionsOne ">
+                            {{ form.TT2 }}
+                        </div>
+                    </div>   
+
+                    <div class="Tab3BoxWrapper2">
+                        <div class="Tab3labelWrapper">
+                            <label class="Tab4mg"> Подтверждение(фото) </label>
+                        </div>
+                        <div class="tab2optionsThree2">                      
+                            {{ form.TT3 }}
+                        </div> 
+                    </div> 
+                </div>
+                  
+            </div>                                       
+          </div>
+      </div>  
+      <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block cli" type="submit">Сохранить</button>
+      </hr> 
+      {% endif %}  
+</form>
+{% endif %}
+{% endblock%}

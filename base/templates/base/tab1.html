@@ -1,0 +1,569 @@
+{% extends 'base/base.html' %}
+{% block body %}
+{% if request.user.is_staff  %}
+   
+{% elif request.user.is_active  %}
+<h3 style="text-align: center; margin-top: 5%; font-style: italic;">Индикаторы комплексного показателя</h3>
+<form method="POST" class="needs-validation">  
+    {% csrf_token %}
+      <div class="box" style="margin-top: 20px; text-align: center; width: 100%;">
+          <div>
+              {% if messages %}
+              <ul class="messages">
+                  {% for message in messages %}
+                  <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                  {% endfor %}
+              </ul>
+              {% endif %}
+              <br>
+          </div>  
+          {% if is_exist %}  
+            <h1>Ваши данные отправлены</h1>
+                <br>
+            <a href="{% url 'downloadtab1' %}" class="bott">Печать отчета</a>  
+          {% else %}                  
+          <div class="col-md-8 order-md-1"  style="max-width: 100%;">    
+                <div id="content-1" class="contentone">
+                  <h5 class="mb-3" style="text-align: center;">Заполните данные:</h5> 
+                    
+                    <div class="statupwrapper">
+                        <div class="statuptx">
+                            <label class="mg">Наименование показателя, единицы измерения</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup">
+                                <label class="mg">2017</label>
+                            </div> 
+                            <div class="statup">
+                                <label class="mg">2018</label>
+                            </div> 
+                            <div class="statup">
+                                <label class="mg">2019</label>
+                            </div> 
+                            <div class="statup">
+                                <label class="mg">2020</label>
+                            </div> 
+                            <div class="statup">
+                                <label class="mg">2021</label>
+                            </div>  
+                        </div>
+                    </div>   
+                  
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Численность постоянного населения на 1 января текущего года (тыс. чел.):</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A1_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A1_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A1_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A1_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A1_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>   
+
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Количество лечебно-профилактической организации (ед.):</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A2_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A2_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A2_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A2_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A2_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>   
+
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Доля муниципальных дошкольных образовательных организаций, здания которых находяться в аварийном состоянии, или требуют капитального ремонта, в общем числе муниципальных дошкольных образовательных организаций (%):</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A3_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A3_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A3_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A3_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A3_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Доля муниципальных общеобразовательных организаций, здания которых находяться в аварийном состоянии, или требуют капитального ремонта, в общем числе муниципальных дошкольных образовательных организаций (%):</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A4_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A4_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A4_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A4_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A4_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>   
+               
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Доля муниципальных учереждений культуры организаций, здания которых находяться в аварийном состоянии, или требуют капитального ремонта, в общем числе муниципальных дошкольных образовательных организаций (%):</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A5_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A5_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A5_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A5_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A5_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>   
+
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Численность населения, охваченного системами оповещения (тыс.чел %) от общей численности населения территории:</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A6_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A6_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A6_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A6_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A6_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Наличие утвержденного документа территориальногшо планирования:</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A7_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A7_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A7_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A7_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A7_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Наличие документа градостроительного зонирования:</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A8_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A8_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A8_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A8_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A8_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Степень износа жилого фонда (%):</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A9_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A9_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A9_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A9_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A9_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Смертность населения трудоспособного возраста (чел.):</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A10_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A10_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A10_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A10_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A10_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Смертность от ДТП (чел.):</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A11_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A11_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A11_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A11_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A11_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>   
+
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Количество погибших при авариях и происшествиях (чел.):</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A12_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A12_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A12_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A12_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A12_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Количество населения, погибшего в чрезвычайных ситуациях (чел.):</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A13_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A13_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A13_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A13_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A13_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Количество людей, погибших в результате пожара (чел.):</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A14_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A14_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A14_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A14_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A14_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Количество погибших в происшествиях на водных объектах:</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A15_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A15_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A15_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A15_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A15_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Количество населения, пострадавшего в чрезвычайных ситуациях (чел.):</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A16_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A16_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A16_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A16_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A16_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Количество людей, травмированных в результате пожаров (чел.):</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A17_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A17_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A17_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A17_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A17_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Количество ЧС природного характера, в которых погибло 10 и более человек:</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A18_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A18_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A18_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A18_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A18_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Количество ЧС техногенного характера, в которых погибло 10 и более человек:</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A19_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A19_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A19_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A19_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A19_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>
+                    
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Количество природных пожаров, в которых погибло 10 и более человек:</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A20_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A20_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A20_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A20_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A20_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class="statupwrapper">
+                        <div class="statuptx mt">
+                            <label class="mg">Количество техногенных пожаров, в которых погибло 10 и более человек:</label>                  
+                        </div>
+
+                        <div class="statyear">
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A21_1 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A21_2 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A21_3 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A21_4 }}</label>
+                            </div> 
+                            <div class="statup mt pd">
+                                <label class="mg">{{ form.A21_5 }}</label>
+                            </div>  
+                        </div>
+                    </div>
+            
+             
+                </div>                          
+                <hr class="mb-4">
+                     <button class="btn btn-primary btn-lg btn-block cli" type="submit">Сохранить</button>
+                </hr>   
+                {% endif %}                        
+          </div>
+      </div>   
+</form> 
+{% endif %}
+{% endblock%}
+
+

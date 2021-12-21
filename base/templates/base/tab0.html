@@ -1,0 +1,140 @@
+{% extends 'base/base.html' %}
+{% block body %}
+{% if request.user.is_staff  %}
+
+{% elif request.user.is_active  %}
+<h3 style="text-align: center; margin-top: 5%; font-style: italic;">Источники ЧС</h3>
+<form method="POST" class="needs-validation">  
+    {% csrf_token %}
+      <div class="box" style="margin-top: 20px; text-align: center; width: 100%;">
+          <div>
+              {% if messages %}
+              <ul class="messages">
+                  {% for message in messages %}
+                  <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                  {% endfor %}
+              </ul>
+              {% endif %}
+              <br>
+          </div>  
+          {% if is_exist %}  
+            <h1>Ваши данные отправлены</h1>
+                <br>
+            <a href="{% url 'downloadtab0' %}" class="bott">Печать отчета</a>  
+          {% else %}                  
+          <div class="col-md-8 order-md-1"  style="max-width: 100%;">    
+                <div id="content-1" class="contentone">
+                  <h5 class="mb-3" style="text-align: center;">Заполните данные:</h5> 
+                  <div class="boxWrapper3"> 
+                      
+                    <div class="danger">
+                        <label class="mg">Природные источники ЧС:</label>
+
+                        <div class="dangerwrapper">
+                            <label class="mg">Опасные геофизические явления:</label>
+                            <div class="forms">{{form.ObjectA }}</div>
+                        </div>
+
+                        <div class="dangerwrapper">
+                            <label class="mg">Опасные геологические явления:</label>
+                            <div class="forms">{{ form.ObjectB }}</div>
+                        </div>
+
+                        <div class="dangerwrapper">
+                            <label class="mg">Опасные метеорологические явления:</label>
+                            <div class="forms">{{form.ObjectC }}</div>
+                        </div>
+
+                        <div class="dangerwrapper">
+                            <label class="mg">Морские опасные гидрометеорологические явления:</label>
+                            <div class="forms">{{ form.ObjectD }}</div>
+                        </div>
+
+                        <div class="dangerwrapper">
+                            <label class="mg">Опасные гидрологические явления:</label>
+                            <div class="forms">{{form.ObjectE }}</div>
+                        </div>
+
+                        <div class="dangerwrapper">
+                            <label class="mg">Опасные явления в лесах:</label>
+                            <div class="forms">{{ form.ObjectF }}</div>
+                        </div>
+
+                        <div class="dangerwrapper">
+                            <label class="mg">Гелиогеофизические явления:</label>
+                            <div class="forms">{{form.ObjectG }}</div>
+                        </div>
+
+                        <div class="dangerwrapper">
+                            <label class="mg">Космические опасности:</label>
+                            <div class="forms">{{ form.ObjectH }}</div>
+                        </div>
+                    
+                        <div class="dangerwrapper">
+                            <label class="mg">Биологическая опасность:</label>
+                            <div class="forms">{{form.ObjectI }}</div>
+                        </div>
+
+                      
+                                        
+                    </div>
+
+                    <div class="danger2">
+
+                            <label class="mg">Техногенные источники ЧС:</label>
+
+                        <div class="dangerwrapper">
+                            <label class="mg">Транспортные аварии:</label>
+                            <div class="forms">{{ form.ObjectJ }}</div>
+                        </div>
+
+                        <div class="dangerwrapper">
+                            <label class="mg">Взрывы (в том числе с последующим горением) и (или) разрушения (обрушения) в зданиях и сооружениях:</label>
+                            <div class="forms">{{ form.ObjectK }}</div>
+                        </div>   
+                                               
+                        <div class="dangerwrapper">
+                            <label class="mg">Аварии на системах жизнеобеспечения:</label>
+                            <div class="forms">{{ form.ObjectL }}</div> 
+                        </div>
+
+                        <div class="dangerwrapper">
+                            <label class="mg">Аварии с выбросом, сбором опасных химических веществ:</label>
+                            <div class="forms">{{ form.ObjectM }}</div>
+                        </div>   
+                                              
+                        <div class="dangerwrapper">
+                            <label class="mg">Аварии с разливом (выбросом) нефти, нефтепродуктов:</label>
+                            <div class="forms">{{ form.ObjectN }}</div> 
+                        </div>
+
+                        <div class="dangerwrapper">
+                            <label class="mg">Радиационная авария с выбросом, сбором, проливом, просыпом ядерных материалов, радиоактивных веществ и радиоактивных отходов:</label>
+                            <div class="forms">{{ form.ObjectO }}</div>
+                        </div>   
+                                            
+                        <div class="dangerwrapper">
+                            <label class="mg">Аварии с выбросом (проливом, просыпом) патогенных для человека микроорганизмов:</label>
+                            <div class="forms">{{ form.ObjectP }}</div> 
+                        </div>
+
+                        <div class="dangerwrapper">
+                            <label class="mg">Гидродинамические аварии:</label>
+                            <div class="forms">{{ form.ObjectQ }}</div>
+                        </div>   
+ 
+                    </div> 
+                           
+                  </div>
+                </div>                          
+                <hr class="mb-4">
+                     <button class="btn btn-primary btn-lg btn-block cli" type="submit">Сохранить</button>
+                </hr>   
+                {% endif %}                        
+          </div>
+      </div>   
+</form> 
+{% endif %}
+{% endblock%}
+
+

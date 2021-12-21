@@ -1,0 +1,81 @@
+{% load static %}
+{% load zz %}
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Мой город - без опасносностей!</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'base/css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'base/css/reg.css'%}">
+    <link rel="stylesheet" href="{% static 'base/css/tab.css'%}">
+    <link rel="stylesheet" href="{% static 'base/css/search.css'%}">
+    <header>
+      <div class="menu_top">
+        <div class="header">
+          <img src="{% static 'base/img/logo2.jpg' %}" style="height: 150px; margin-left: 200px; margin-top: 10px;"> 
+              <div class="bad">
+                <p style="margin-top: 25px; margin-left: 20px; margin-bottom: 1px;"><h9>Министерство Российской Федерации по делам гражданской обороны, чрезвычайным ситуациям и ликвидации последствий стихийных бедствий</h9></p>
+                <h8>Научно-исследоватеский центр</h8>          
+              </div>  
+              {% if request.user.is_staff  %}
+              <div class="user_field2">            
+                <a href="{% url 'tab2' %}" class="bott">Критерии деятельности</a> 
+                <a href="/admin" class="bott">Админ. панель</a>              
+              </div>
+              <div class="report">
+                <a href="{% url 'region' %}" class="bott">Поиск отчетов</a>  
+                <a href="{% url 'logout' %}" class="bott">Выход из аккаунта</a>               
+              </div>        
+        </div>    
+             
+          {% elif request.user.is_active %}
+              <div class="user_field">
+               
+                <label class="lb" for="id_oblast">Субъект Российской Федерации:</label>                                  
+                <h8 style="margin-left: 0px !important;">{{ request.user.id|Sub }}</h8>         
+                <label class="lb" for="id_vvr">Название муниципального образования:</label>                             
+                <h8 style="margin-left: 0px !important;">{{ request.user.id|Municipal }}</h8>         
+                <label class="lb" for="id_people">ФИО Главы муниципального образования:</label>         
+                <h8 style="margin-left: 0px !important;">{{ request.user.id|MunicipalHead }}</h8>                     
+              </div> 
+              <div class="report">
+                <a href="{% url 'statistical' %}" class="bott">Стат. данные</a>
+                <a href="{% url 'region' %}" class="bott">Поиск отчетов</a>  
+                <a href="{% url 'logout' %}" class="bott">Выход из аккаунта</a>               
+              </div>        
+        </div>    
+              <nav class="top-menu">
+                <ul class="menu-main">          
+                    <li class="left-item"><a href="{% url 'tab0' %}">Источники ЧС</a></li>
+                    <li class="left-item"><a href="{% url 'tab1' %}">Индикаторы комплексного показателя</a></li>
+                    <li class="right-item"><a href="{% url 'tab3' %}">Паспорт проекта</a></li>
+                    <li class="right-item"><a href="{% url 'card' %}">Оценочная карта</a></li>          
+                </ul>
+                <a class="navbar-logo" href="{% url 'office' %}"><img src="{% static 'base/img/rose.png' %}" style="height: 150px;" ></a>   
+              </nav> 
+          {% endif %}
+
+          
+        {% if request.user.is_anonymous %}
+        <div class="user_reg"> 
+          <a href="{% url 'signin' %}" class="button user_reg2">Войти</a>
+          <a href="{% url 'register' %}" class="button user_reg2">Регистрация</a>
+        </div>  
+        
+      {% endif %}
+     
+      </div>
+    </header>
+  </head>
+
+<body>   
+  {% block body %} 
+  {% endblock %}
+</body>
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+      <p class="mb-1">&copy; 2021 АГЗ МЧС России</p>
+</footer>
+</html>
